@@ -1,0 +1,367 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"IResponse": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"error": {},
+					"data": {},
+					"status": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"message",
+					"error",
+					"data",
+					"status"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {
+			"Bearer": {
+				"type": "apiKey",
+				"name": "Authorization",
+				"in": "header",
+				"description": "JWT Authorization header using the Bearer scheme."
+			}
+		}
+	},
+	"info": {
+		"title": "atlas_sync_apis",
+		"version": "1.0.0",
+		"description": "Faction AtlasSync apis",
+		"license": {
+			"name": "license"
+		},
+		"contact": {
+			"name": "BTB"
+		}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/api/admin/login": {
+			"post": {
+				"operationId": "Login",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "Login subAdmin / admin",
+				"tags": [
+					"Admin"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"password": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"password",
+									"email"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/client/save": {
+			"post": {
+				"operationId": "Save",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "Save a client",
+				"tags": [
+					"Client"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"device_token": {
+										"type": "string"
+									},
+									"company_name": {
+										"type": "string"
+									},
+									"date_of_establishment": {
+										"type": "string"
+									},
+									"user_type": {
+										"type": "string"
+									},
+									"phone_code": {
+										"type": "string"
+									},
+									"country_code": {
+										"type": "string"
+									},
+									"country_flag": {
+										"type": "string"
+									},
+									"country": {
+										"type": "string"
+									},
+									"my_referral_code": {
+										"type": "string"
+									},
+									"language": {
+										"type": "string"
+									},
+									"phone_number": {
+										"type": "number",
+										"format": "double"
+									},
+									"password": {
+										"type": "string"
+									},
+									"last_name": {
+										"type": "string"
+									},
+									"first_name": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"user_name": {
+										"type": "string"
+									},
+									"date_of_birth": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"device_token",
+									"company_name",
+									"date_of_establishment",
+									"user_type",
+									"country",
+									"language",
+									"phone_number",
+									"password",
+									"email",
+									"user_name",
+									"date_of_birth"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/client/login": {
+			"post": {
+				"operationId": "Login",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "User login/user",
+				"tags": [
+					"Client"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"device_token": {
+										"type": "string"
+									},
+									"location": {
+										"type": "string"
+									},
+									"longitude": {
+										"type": "string"
+									},
+									"latitude": {
+										"type": "string"
+									},
+									"device": {
+										"type": "string"
+									},
+									"browser": {
+										"type": "string"
+									},
+									"password": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"user_name": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"device_token",
+									"location",
+									"longitude",
+									"latitude",
+									"device",
+									"browser",
+									"password",
+									"email",
+									"user_name"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/client/me": {
+			"get": {
+				"operationId": "Me",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get user info/admin",
+				"tags": [
+					"Client"
+				],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/api/client/deleteAccount": {
+			"delete": {
+				"operationId": "DeleteAccount",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "Account Deletion for user/ admin, require user auth",
+				"tags": [
+					"Client"
+				],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/api/client/deleteUser": {
+			"delete": {
+				"operationId": "DeleteUser",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "Delete a User",
+				"tags": [
+					"Client"
+				],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
